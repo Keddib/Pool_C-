@@ -2,7 +2,7 @@ NAME		= 	FONY
 
 SRCS 		=	main.cpp Contact.cpp Fony.cpp
 
-OBJ			=	main.o Conatc.o Fony.o
+OBJ			=	main.o Contact.o Fony.o
 
 GO			=	clang++ -Wall -Wextra -Werror #-fsanitize=address -g3
 

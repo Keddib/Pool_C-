@@ -12,6 +12,7 @@ class Fony
 		Contact	_contacts[8];
 		int		_cont_number;
 		void	_delete_old_contact();
+		int		_which_contact() const;
 
 	public:
 		Fony();
@@ -20,5 +21,7 @@ class Fony
 		void	display_contact() const;
 		int		num_conts() const { return _cont_number; };
 };
+
+bool		is_valid(const std::string &s);
 
 #endif

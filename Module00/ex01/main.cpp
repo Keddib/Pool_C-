@@ -6,7 +6,7 @@
 /*   By: keddib <keddib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 08:01:47 by keddib            #+#    #+#             */
-/*   Updated: 2021/10/11 15:11:36 by keddib           ###   ########.fr       */
+/*   Updated: 2021/10/12 11:41:20 by keddib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,27 @@ void	uppercase(std::string &cmd)
 
 int	main()
 {
+	std::cout << "\n\033[1;31mWELCOME TO FONY AN AWSOME PHONE BOOK\033[0m";
+	std::cout << "\033[1;33m : ADD, SEARCH, EXIT\033[0m \n";
+	std::cout << std::endl;
 	Fony phonebook;
 	std::string cmd;
 	while (1)
 	{
-		std::cout << "FONY: ";
+		std::cout << "\033[1:36mFONY: \33[0m";
 		if (!(std::getline(std::cin, cmd)))
 			break ;
 		uppercase(cmd);
 		if (cmd == "ADD")
+		{
 			phonebook.add_contact();
+			std::cout << std::endl;
+		}
 		else if (cmd == "SEARCH")
 		{
 			if (phonebook.search())
 				phonebook.display_contact();
+			std::cout << std::endl;
 		}
 		else if (cmd == "EXIT")
 			break ;
