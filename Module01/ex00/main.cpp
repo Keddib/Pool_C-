@@ -1,17 +1,18 @@
 #include "Zombie.hpp"
 #include <iostream>
-#include <string>
-
 int main()
 {
 	Zombie z;
-	Zombie l("ertgyhuio");
-
 	z.announce();
+
+	Zombie l("ertgyhuio");
 	l.announce();
 
 	randomChump("AAAAAAA");
+	
 	Zombie *u = newZombie("bbbbb");
 	u->announce();
+	
 	delete u;
+	return (0);
 }

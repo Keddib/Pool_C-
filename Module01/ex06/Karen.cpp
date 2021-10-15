@@ -2,15 +2,9 @@
 #include <iostream>
 #include <string>
 
-Karen::Karen()
-{
-	std::cout << "constructor called\n";
-}
+Karen::Karen(){}
 
-Karen::~Karen()
-{
-	std::cout << "destructor called\n";
-}
+Karen::~Karen(){}
 
 void	Karen::debug() {
 	std::cout << "[ DEBUG ]\n"

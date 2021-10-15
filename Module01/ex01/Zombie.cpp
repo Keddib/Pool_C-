@@ -4,13 +4,14 @@
 
 Zombie::Zombie()
 {
-	this->_name = "NOT NAMED";
-	std::cout << "constructor excuted\n";
+	_name = "NOT NAMED";
+	std::cout << "defualt constructor  excuted\n";
 }
 
 Zombie::Zombie(std::string s)
 {
-	this->_name = s;
+	_name = s;
+	std::cout << "constructor with string param excuted\n";
 }
 
 Zombie::~Zombie()

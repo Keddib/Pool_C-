@@ -10,7 +10,6 @@ $(NAME): $(SRCS)
 		@$(GO) -o $(NAME) $(SRCS)
 
 clean:
-	@rm -rf $(SRCS)
 
 fclean: clean
 	@rm -rf $(NAME)

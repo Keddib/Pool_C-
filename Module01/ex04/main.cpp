@@ -31,14 +31,11 @@ int main(int argc, char **argv)
 	if (inFile.is_open() && outFile.is_open())
 	{
 		std::string Line;
-		getline(inFile, Line);
-		while (!inFile.eof())
+		while (getline(inFile, Line))
 		{
-			if (!Line.empty())
-				replaceLine(Line, argv[2], argv[3]);
+			replaceLine(Line, argv[2], argv[3]);
 			outFile << Line + '\n';
 			Line.clear();
-			getline(inFile, Line);
 		}
 		inFile.close();
 		outFile.close();

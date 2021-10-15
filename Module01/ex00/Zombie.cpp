@@ -5,11 +5,14 @@
 Zombie::Zombie()
 {
 	_name = "NOT NAMED";
+	std::cout << "default constructor excuted\n";
+	
 }
 
 Zombie::Zombie(std::string s)
 {
 	_name = s;
+	std::cout << "constructor with string param excuted\n";
 }
 
 Zombie::~Zombie()

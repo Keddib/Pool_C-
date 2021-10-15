@@ -35,7 +35,7 @@ void filterKaren(Karen &karen, std::string level)
 			karen.complain("error");
 			break;
 		default:
-			std::cout << "[ Probably complaining about insignificant problems ]";
+			std::cout << "[ Probably complaining about insignificant problems ]\n";
 	}
 
 }
