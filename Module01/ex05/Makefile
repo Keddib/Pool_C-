@@ -1,6 +1,6 @@
-NAME		= 	Human
+NAME		= 	karen
 
-SRCS 		=	main.cpp HumanA.cpp Weapon.cpp HumanB.cpp
+SRCS 		=	main.cpp Karen.cpp
 
 GO			=	clang++ -Wall -Wextra -Werror #-fsanitize=address -g3
 

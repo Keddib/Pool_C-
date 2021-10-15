@@ -2,18 +2,14 @@ NAME		= 	REF
 
 SRCS 		=	main.cpp
 
-OBJ			=	main.o
-
 GO			=	clang++ -Wall -Wextra -Werror #-fsanitize=address -g3
 
 all:	$(NAME)
 
 $(NAME): $(SRCS)
-		@$(GO) -c $(SRCS)
-		@$(GO) -o $(NAME) $(OBJ)
+		@$(GO) -o $(NAME) $(SRCS)
 
 clean:
-	@rm -rf $(OBJ)
 
 fclean: clean
 	@rm -rf $(NAME)

@@ -1,19 +1,16 @@
 NAME		= 	Zombie
 
-SRCS 		=	*.cpp
-
-OBJ			=	*.o
+SRCS 		=	main.cpp Zombie.cpp ZombieHorde.cpp
 
 GO			=	clang++ -Wall -Wextra -Werror #-fsanitize=address -g3
 
 all:	$(NAME)
 
 $(NAME): $(SRCS)
-		@$(GO) -c $(SRCS)
-		@$(GO) -o $(NAME) $(OBJ)
+		@$(GO) -o $(NAME) $(SRCS)
 
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf $(SRCS)
 
 fclean: clean
 	@rm -rf $(NAME)
