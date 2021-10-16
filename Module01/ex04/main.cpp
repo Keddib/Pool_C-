@@ -10,12 +10,12 @@ int ft_error()
 void	replaceLine(std::string &l, const std::string &s1, const std::string &s2)
 {
 	typedef std::string::iterator iter;
-	size_t found = l.find(s1);
+	size_t found = l.find(s1, 0);
 	while (found != std::string::npos)
 	{
 		iter isert = l.erase(l.begin() + found, l.begin() + found + s1.size());
 		l.insert(isert, s2.begin(), s2.end());
-		found = l.find(s1);
+		found = l.find(s1, found + s2.size());
 	}
 }
 

@@ -8,7 +8,6 @@ class Zombie
 	private:
 		std::string _name;
 	public:
-		int i;
 		Zombie();
 		Zombie(std::string);
 		~Zombie();

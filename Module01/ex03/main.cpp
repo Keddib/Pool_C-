@@ -13,7 +13,7 @@ int main()
 		club.setType("some other type of club");
 		bob.attack();
 	//	HumanA Adam; // won't work needs a weapon
-		Adam.attack();
+	//	Adam.attack();
 	}
 	{
 		Weapon club = Weapon("crude spiked club");
