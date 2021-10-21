@@ -4,7 +4,7 @@
 class Stack
 {
 	private:
-		int _array[10](0);
+		int _array[10];
 		int _size;
 	public:
 		Stack( void );
@@ -15,3 +15,5 @@ class Stack
 		int  pop( void );
 		void print( void );
 };
+
+#endif
