@@ -7,16 +7,22 @@ Fixed::Fixed( void ) : _raw(0)
 	std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed( int value )
+Fixed::Fixed( const int value )
 {
 	_raw = value << _fraction_bits;
 	std::cout << "int constructor called\n";
 }
 
-Fixed::Fixed( float value )
+Fixed::Fixed( const float value )
 {
 	_raw = roundf(value * (1 << _fraction_bits));
 	std::cout << "float constructor called\n";
+}
+
+Fixed::Fixed( const Fixed &fixed)
+{
+	_raw = fixed._raw;
+	std::cout << "copy constructor called\n";
 }
 
 Fixed::~Fixed( void )
@@ -49,8 +55,8 @@ float	Fixed::toFloat( void ) const
 
 Fixed&	Fixed::operator = (const Fixed &other)
 {
-	this->_raw = other._raw;
 	std::cout << "assignment operator called\n";
+	this->_raw = other._raw;
 	return *this;
 }
 

@@ -1,27 +1,29 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
-Fixed::Fixed( void ) : _raw(0)
+Fixed::Fixed( void ) : _raw(0) {}
+
+Fixed::Fixed( int vl )
 {
-	std::cout << "Default constructor called\n";
+	_raw = vl << _fraction_bits;
 }
 
-Fixed::~Fixed( void )
+Fixed::Fixed( float vl )
 {
-	_raw = 0;
-	std::cout << "Destructor called\n";
+	_raw = roundf(vl * (1 << _fraction_bits));
 }
+
+Fixed::~Fixed( void ) { _raw = 0; }
 
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called\n";
 	return (_raw >> _fraction_bits);
 }
 
 void	Fixed::setRawBits(int const value)
 {
-	std::cout << "setRawBits member function called\n";
-	_raw = value << _fraction_bits;
+	_raw = value;
 }
 
 int		Fixed::toInt( void ) const
@@ -37,35 +39,38 @@ float	Fixed::toFloat( void ) const
 Fixed&	Fixed::operator = (const Fixed &other)
 {
 	this->_raw = other._raw;
-	std::cout << "assignment operator called\n";
 	return *this;
 }
 
 Fixed	Fixed::operator + (const Fixed &other)
 {
 	Fixed tmp;
-	//addition
+	tmp.setRawBits(this->_raw + other._raw);
 	return tmp;
 }
 
 Fixed	Fixed::operator - (const Fixed &other)
 {
 	Fixed tmp;
-	//addition
+	tmp.setRawBits(this->_raw - other._raw);
 	return tmp;
 }
 
 Fixed	Fixed::operator * (const Fixed &other)
 {
+	int tmpRaw = this->_raw * other._raw;
 	Fixed tmp;
-	//addition
+	tmp.setRawBits(tmpRaw >> _fraction_bits);
 	return tmp;
 }
 
 Fixed	Fixed::operator / (const Fixed &other)
 {
+	// roundf(vl * (1 << _fraction_bits);
+	float result = this->_raw / other._raw;
+	// int tmpRaw = this->_raw / other._raw;
 	Fixed tmp;
-	//addition
+	tmp.setRawBits(roundf(result * (1 << _fraction_bits)));
 	return tmp;
 }
 
@@ -76,7 +81,12 @@ bool	Fixed::operator == (const Fixed &other)
 
 bool	Fixed::operator != (const Fixed &other)
 {
-	return (this->_raw != other._raw);
+	return !(this->_raw == other._raw);
+}
+
+bool	Fixed::operator < (const Fixed &other)
+{
+	return (this->_raw < other._raw);
 }
 
 bool	Fixed::operator > (const Fixed &other)
@@ -86,44 +96,41 @@ bool	Fixed::operator > (const Fixed &other)
 
 bool	Fixed::operator >= (const Fixed &other)
 {
-	return (this->_raw >= other._raw);
-}
-
-bool	Fixed::operator < (const Fixed &other)
-{
-	return (this->_raw < other._raw);
+	return !(this->_raw < other._raw);
 }
 
 bool	Fixed::operator <= (const Fixed &other)
 {
-	return (this->_raw <= other._raw);
+	return !(this->_raw > other._raw);
 }
+
+// pre-increment and pre-decrement
 
 Fixed&	Fixed::operator ++ ( void )
 {
-	// preincrement
+	_raw += 1;
 	return *this;
 }
 
 Fixed&	Fixed::operator -- ( void )
 {
-	// predecriment
+	_raw -= 1;
 	return *this;
 }
 
+// post-increment and post-decrement
+
 Fixed	Fixed::operator ++ ( int )
 {
-	Fixed tmp;
-	tmp._raw = this->_raw;
-	// postincriment
+	Fixed tmp = *this;
+	++(*this);
 	return tmp;
 }
 
 Fixed	Fixed::operator -- ( int )
 {
-	Fixed tmp;
-	tmp._raw = this->_raw;
-	// postdecriment
+	Fixed tmp = *this;
+	--(*this);
 	return tmp;
 }
 

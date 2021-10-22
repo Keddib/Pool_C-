@@ -1,6 +1,8 @@
 #ifndef FIXED_101_HPP
 #define FIXED_101_HPP
 
+#include <iostream>
+
 class Fixed
 {
 	private:
@@ -8,13 +10,15 @@ class Fixed
 		static const int _fraction_bits = 8;
 	public:
 		Fixed( void );
-		Fixed( int );
-		Fixed( float );
+		Fixed( const int );
+		Fixed( const float );
+		Fixed( const Fixed & );
+		Fixed &operator = (const Fixed &);
 		~Fixed( void );
-		// copy constructor;
-		Fixed &operator = (const Fixed &other);
+
 		int		getRawBits( void ) const;
 		void	setRawBits(int const value);
+
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 };

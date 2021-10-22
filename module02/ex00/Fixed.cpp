@@ -6,6 +6,12 @@ Fixed::Fixed( void ) : _raw(0)
 	std::cout << "Default constructor called\n";
 }
 
+Fixed::Fixed( const Fixed &fixed) //copy constructor
+{
+	this->_raw = fixed._raw;
+	std::cout << "Copy constructor called\n";
+}
+
 Fixed::~Fixed( void )
 {
 	_raw = 0;
@@ -15,11 +21,20 @@ Fixed::~Fixed( void )
 int		Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called\n";
-	return (_raw >> _fraction_bits);
+	return (_raw);
 }
 
 void	Fixed::setRawBits(int const value)
 {
+	_raw = value;
 	std::cout << "setRawBits member function called\n";
-	_raw = value << _fraction_bits;
+}
+
+Fixed& Fixed::operator = (const Fixed &fixed)
+{
+	if (this == &fixed) // if not self assignment
+		return *this;
+	_raw = fixed._raw;
+	std::cout << "Assignment operator overload called\n";
+	return *this;
 }

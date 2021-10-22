@@ -1,6 +1,8 @@
 #ifndef FIXED_101_HPP
 #define FIXED_101_HPP
 
+#include <iostream>
+
 class Fixed
 {
 	private:
@@ -9,6 +11,8 @@ class Fixed
 	public:
 		//4 rule 98 + 2 in c++ 11;
 		Fixed( void );
+		Fixed( int );
+		Fixed( float );
 		// copy constructor;
 		Fixed &operator = (const Fixed &);
 		~Fixed( void );
@@ -17,8 +21,8 @@ class Fixed
 		Fixed	operator - (const Fixed &);
 		Fixed	operator * (const Fixed &);
 		Fixed	operator / (const Fixed &);
-		Fixed	operator ++ ( void ); //prefix
-		Fixed	operator -- ( void ); //prefix
+		Fixed&	operator ++ ( void ); //prefix
+		Fixed&	operator -- ( void ); //prefix
 		Fixed	operator ++ ( int ); //postfix
 		Fixed	operator -- ( int ); //postfix
 		bool	operator == (const Fixed &);
