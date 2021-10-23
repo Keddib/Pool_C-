@@ -20,35 +20,21 @@ Fixed Point::get_y() const
 
 Fixed triangleArea(Point const a, Point const b, Point const c)
 {
-	Fixed one = ( a.get_x() * (b.get_y() - c.get_y()) );
-	std::cout << "one = " << one << '\n';
-	Fixed two = ( b.get_x() * (a.get_y() - c.get_y()) );
-	std::cout << "two = " << two << '\n';
-	Fixed tre = ( c.get_x() * (a.get_y() - b.get_y()) );
-	std::cout << "tre = " << tre << '\n';
-	Fixed sum = one + two + tre;
-	std::cout << "sum = " << sum << '\n';
-	Fixed result = (one + two + tre) / Fixed(2);
-	std::cout << "result = " << result << '\n';
-	return result;
+	Fixed det(0.0f);
+	det = ((a.get_x() - c.get_x()) * (b.get_y() - c.get_y())) - ((b.get_x() - c.get_x()) * (a.get_y() - c.get_y()));
+	return (det / Fixed(2.0f));
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
 	point.get_x();
 	Fixed bigTriangle = triangleArea(a, b, c);
-	std::cout << "big = " << bigTriangle << '\n';
-	std::cout << "-----------------\n";
-	Fixed triangle1 = triangleArea(a, point, b);
-	std::cout << "ft1 = " << triangle1 << '\n';
-	std::cout << "-----------------\n";
-	Fixed triangle2 = triangleArea(a, point, c);
-	std::cout << "ft2 = " << triangle2 << '\n';
-	std::cout << "-----------------\n";
-	Fixed triangle3 = triangleArea(point, b, c);
-	std::cout << "ft3 = " << triangle3 << '\n';
-	std::cout << "-----------------\n";
-	// if ((triangle1 + triangle2 + triangle3) == bigTriangle)
-		return (true);
-	return (false);
+	Fixed triangle1 = triangleArea(point, a, b);
+	Fixed triangle2 = triangleArea(point, b, c);
+	Fixed triangle3 = triangleArea(point, a, c);
+	if (triangle1 == 0 || triangle2 == 0 || triangle3 == 0)
+		return (false);
+	else if ((triangle1 + triangle2 + triangle3) > bigTriangle)
+		return (false);
+	return (true);
 }
