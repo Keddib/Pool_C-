@@ -14,9 +14,10 @@ class Fixed
 		Fixed( int );
 		Fixed( float );
 		// copy constructor;
-		Fixed &operator = (const Fixed &);
+		Fixed( const Fixed &);
 		~Fixed( void );
 
+		Fixed &operator = (const Fixed &);
 		Fixed	operator + (const Fixed &);
 		Fixed	operator - (const Fixed &);
 		Fixed	operator * (const Fixed &);
@@ -35,7 +36,7 @@ class Fixed
 		void	setRawBits(int const value);
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-		
+
 		//static mem functions related to the class not the objects doesn't have this pointer
 		static Fixed& max (Fixed &, Fixed&);
 		static const Fixed& max (const Fixed &, const Fixed&);

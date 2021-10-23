@@ -9,6 +9,11 @@ Fixed::Fixed( int vl )
 	_raw = vl << _fraction_bits;
 }
 
+Fixed::Fixed(const Fixed &other)
+{
+	_raw = other._raw;
+}
+
 Fixed::Fixed( float vl )
 {
 	_raw = roundf(vl * (1 << _fraction_bits));

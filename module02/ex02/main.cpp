@@ -32,14 +32,22 @@ int main()
 
 	// arithmetic operations tests;
 	//int
+	std::cout << "example + " << 195 + 95 << "\n";
 	std::cout << "overload + " << a + b << "\n";
+	std::cout << "example - " << 195 - 95 << "\n";
 	std::cout << "overload - " << a - b << "\n";
+	std::cout << "example * " << 195 * 95 << "\n";
 	std::cout << "overload * " << a * b << "\n";
+	std::cout << "exmple / " << 195 / 95 << "\n";
 	std::cout << "overload / " << a / b << "\n";
 	// float
+	std::cout << "exmple + " << 12.21f + 1.023f << "\n";
 	std::cout << "overload + " << x + y << "\n";
+	std::cout << "exmple - " << 12.21f - 1.023f << "\n";
 	std::cout << "overload - " << x - y << "\n";
+	std::cout << "exmple * " << 12.21f * 1.023f << "\n";
 	std::cout << "overload * " << x * y << "\n";
+	std::cout << "exmple / " << 12.21f / 1.023f << "\n";
 	std::cout << "overload / " << x / y << "\n";
 
 	Fixed aa;
