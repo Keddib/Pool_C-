@@ -25,16 +25,20 @@ class Fixed
 		Fixed&	operator -- ( void ); //prefix
 		Fixed	operator ++ ( int ); //postfix
 		Fixed	operator -- ( int ); //postfix
-		bool	operator == (const Fixed &);
-		bool	operator != (const Fixed &);
-		bool	operator > (const Fixed &);
-		bool	operator >= (const Fixed &);
-		bool	operator < (const Fixed &);
-		bool	operator <= (const Fixed &);
+		bool	operator == (const Fixed &) const;
+		bool	operator != (const Fixed &) const;
+		bool	operator > (const Fixed &) const;
+		bool	operator >= (const Fixed &) const;
+		bool	operator < (const Fixed &) const;
+		bool	operator <= (const Fixed &) const;
 		int		getRawBits( void ) const;
 		void	setRawBits(int const value);
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
+		
+		//static mem functions related to the class not the objects doesn't have this pointer
+		static Fixed& max (Fixed &, Fixed&);
+		static const Fixed& max (const Fixed &, const Fixed&);
 };
 
 std::ostream& operator<< (std::ostream& out, const Fixed& fixed);

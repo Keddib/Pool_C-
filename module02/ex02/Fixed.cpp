@@ -66,40 +66,38 @@ Fixed	Fixed::operator * (const Fixed &other)
 
 Fixed	Fixed::operator / (const Fixed &other)
 {
-	// roundf(vl * (1 << _fraction_bits);
-	float result = this->_raw / other._raw;
-	// int tmpRaw = this->_raw / other._raw;
+	float result = (this->_raw << _fraction_bits) / other._raw;
 	Fixed tmp;
-	tmp.setRawBits(roundf(result * (1 << _fraction_bits)));
+	tmp.setRawBits(result);
 	return tmp;
 }
 
-bool	Fixed::operator == (const Fixed &other)
+bool	Fixed::operator == (const Fixed &other) const
 {
 	return (this->_raw == other._raw);
 }
 
-bool	Fixed::operator != (const Fixed &other)
+bool	Fixed::operator != (const Fixed &other) const
 {
 	return !(this->_raw == other._raw);
 }
 
-bool	Fixed::operator < (const Fixed &other)
+bool	Fixed::operator < (const Fixed &other) const
 {
 	return (this->_raw < other._raw);
 }
 
-bool	Fixed::operator > (const Fixed &other)
+bool	Fixed::operator > (const Fixed &other) const
 {
 	return (this->_raw > other._raw);
 }
 
-bool	Fixed::operator >= (const Fixed &other)
+bool	Fixed::operator >= (const Fixed &other) const
 {
 	return !(this->_raw < other._raw);
 }
 
-bool	Fixed::operator <= (const Fixed &other)
+bool	Fixed::operator <= (const Fixed &other) const
 {
 	return !(this->_raw > other._raw);
 }
@@ -140,4 +138,14 @@ std::ostream& operator<< (std::ostream& out, const Fixed& fixed)
 {
 	out << fixed.toFloat();
 	return out;
+}
+
+Fixed& Fixed::max(Fixed &f, Fixed &s)
+{
+	return (f > s ? f : s);
+}
+
+const Fixed& Fixed::max(const Fixed &f, const Fixed &s)
+{
+	return (f > s ? f : s);
 }
