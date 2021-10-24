@@ -154,3 +154,13 @@ const Fixed& Fixed::max(const Fixed &f, const Fixed &s)
 {
 	return (f > s ? f : s);
 }
+
+Fixed& Fixed::min(Fixed &f, Fixed &s)
+{
+	return (f < s ? f : s);
+}
+
+const Fixed& Fixed::min(const Fixed &f, const Fixed &s)
+{
+	return (f < s ? f : s);
+}

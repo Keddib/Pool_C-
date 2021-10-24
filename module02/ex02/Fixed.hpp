@@ -40,6 +40,8 @@ class Fixed
 		//static mem functions related to the class not the objects doesn't have this pointer
 		static Fixed& max (Fixed &, Fixed&);
 		static const Fixed& max (const Fixed &, const Fixed&);
+		static Fixed& min (Fixed &, Fixed&);
+		static const Fixed& min (const Fixed &, const Fixed&);
 };
 
 std::ostream& operator<< (std::ostream& out, const Fixed& fixed);
