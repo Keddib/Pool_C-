@@ -1,15 +1,15 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 
 int main()
 {
-	ClapTrap a("CLAP1");
-	ClapTrap b(a);
-	ClapTrap c("");
-	c = a;
+	FragTrap a("ONE");
+	FragTrap b(a);
 	a.attack("ENEMY");
 	a.takeDamage(20);
 	a.beRepaired(20);
+	std::cout << a << '\n';
+	a.highFivesGuys();
 	return 0;
 }

@@ -5,7 +5,7 @@
 ClapTrap::ClapTrap( void ):
 m_attackDamage(0), m_hitPoints(10), m_energyPoints(10)
 {
-	std::cout << "constructor called\n";
+	std::cout << "default constructor called\n";
 }
 
 ClapTrap::ClapTrap( std::string name ):
@@ -41,12 +41,14 @@ void ClapTrap::attack( std::string const &s)
 	<< ", causing " << m_attackDamage <<  " points of damage\n";
 }
 
-void ClapTrap::takeDamage( unsigned int)
+void ClapTrap::takeDamage( unsigned int damage)
 {
-
+	std::cout << "ClapTrap " << m_name +  " takes "
+	<< damage <<  " points of damage\n";
 }
 
-void ClapTrap::beRepaired( unsigned int)
+void ClapTrap::beRepaired( unsigned int repaired)
 {
-
+	std::cout << "ClapTrap " << m_name +  " takes "
+	<< repaired <<  " points of health\n";
 }

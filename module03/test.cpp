@@ -1,51 +1,36 @@
 #include <iostream>
 
-class A
+#include <iostream>
+class Base
 {
+	private:
+		int m_p;
 public:
-    A()
-    {
-        std::cout << "A\n";
-    }
-	~A() {std::cout << " A end\n";	}
+	int m_value {};
 };
 
-class B: public A
+class Derived : public Base
 {
-public:
-    B()
-    {
-        std::cout << "B\n";
-    }
+private:
+	using Base::m_value;
+	using Base::m_p;
 
-	~B() {std::cout << "B end\n";	}
-};
-
-class C: public B
-{
 public:
-    C()
-    {
-        std::cout << "C\n";
-    }
-	~C() {std::cout << "C end\n";	}
-};
-
-class D: public C
-{
-public:
-    D()
-    {
-        std::cout << "D\n";
-    }
-	~D() {std::cout << "D end\n";	}
+	Derived(int value)
+	// We can't initialize m_value, since it's a Base member (Base must initialize it)
+	{
+		// But we can assign it a value
+		m_value = value;
+		m_p = 10;
+	}
 };
 
 int main()
 {
-    std::cout << "Constructing D: \n";
-    D d;
-	D a;
-	D x;
-}
+	Derived derived { 7 };
 
+	// The following won't work because m_value has been redefined as private
+	std::cout << derived.m_value;
+
+	return 0;
+}
