@@ -7,21 +7,13 @@
 class DiamondTrap: public ScavTrap, public FragTrap
 {
 	private:
-		std::string m_name;
-		using FragTrap::m_hitPoints;
-		using ScavTrap::m_energyPoints;
-		using FragTrap::m_attackDamage;
+		std::string _name;
 
 	public:
 		DiamondTrap( void );
 		DiamondTrap( const std::string );
 		~DiamondTrap( void );
-		using ScavTrap::attack;
-		using ScavTrap::guardGate;
-		using FragTrap::highFivesGuys;
-		using FragTrap::getHitPoints;
-		using ScavTrap::getEnergyPoints;
-		using FragTrap::getAttackDamage;
+		using ScavTrap::attack; // using not allowed;
 		std::string getName( void ) const;
 		void whoAmI( void );
 };

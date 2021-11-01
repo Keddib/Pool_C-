@@ -2,22 +2,22 @@
 #include <string>
 #include <iostream>
 
-ClapTrap::ClapTrap( void ):
-m_attackDamage(0), m_hitPoints(10), m_energyPoints(10)
+ClapTrap::ClapTrap( void )
+: m_hitPoints(10), m_energyPoints(10), m_attackDamage(0)
 {
 	std::cout << GREEN << "Clap default constructor called\n";
 }
 
-ClapTrap::ClapTrap( std::string name, int attack = 0 , int hit = 10, int energy = 10 ):
-m_name(name), m_attackDamage(attack), m_hitPoints(hit), m_energyPoints(energy)
+ClapTrap::ClapTrap( std::string name, int hit = 10, int energy = 10, int attack = 0):
+m_name(name), m_hitPoints(hit), m_energyPoints(energy), m_attackDamage(attack)
 {
 	std::cout << GREEN << "Clap constructor with string param called\n";
 }
 
 ClapTrap::ClapTrap( ClapTrap const &claptrap )
 {
-	*this = claptrap;
 	std::cout << GREEN << "Clap Copy constructor called\n";
+	*this = claptrap;
 }
 
 ClapTrap::~ClapTrap( void )

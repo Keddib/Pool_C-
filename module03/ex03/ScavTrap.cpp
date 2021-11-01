@@ -6,9 +6,22 @@ ScavTrap::ScavTrap( void ): ClapTrap("", 20, 100, 50)
 	std::cout << YELLOW << "Scav default constructor called\n";
 }
 
-ScavTrap::ScavTrap( std::string const name ): ClapTrap(name, 20, 100, 50)
+ScavTrap::ScavTrap( std::string const name, int h = 100, int e = 50, int d = 20)
+: ClapTrap(name, h, e, d)
 {
 	std::cout << YELLOW << "Scav constructor with string called\n";
+}
+
+ScavTrap::ScavTrap( const ScavTrap &scav ): ClapTrap(scav)
+{
+	std::cout << YELLOW << "Scav copy constructor called\n";
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap &scav)
+{
+	ClapTrap::operator=(scav);
+	std::cout << YELLOW << "Scav assignment operator overloading called\n";
+	return *this;
 }
 
 ScavTrap::~ScavTrap( void )
@@ -19,7 +32,7 @@ ScavTrap::~ScavTrap( void )
 void	ScavTrap::attack(std::string const &s)
 {
 	std::cout << YELLOW << "ScavTrap " << getName() +  " attack " + s
-	<< ", causing " << m_attackDamage <<  " points of damage\n";
+	<< ", causing " << getAttackDamage() <<  " points of damage\n";
 }
 
 void ScavTrap::guardGate()

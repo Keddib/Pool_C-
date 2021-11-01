@@ -16,6 +16,18 @@ FragTrap::~FragTrap( void )
 	std::cout << RED << "Frag destructor called\n";
 }
 
+FragTrap::FragTrap( const FragTrap &scav ): ClapTrap(scav)
+{
+	std::cout << RED << "Frag copy constructor called\n";
+}
+
+FragTrap& FragTrap::operator=(const FragTrap &scav)
+{
+	ClapTrap::operator=(scav);
+	std::cout << RED << "Frag assignment operator overloading called\n";
+	return *this;
+}
+
 void	FragTrap::attack(std::string const &s)
 {
 	std::cout << RED << "FragTrap " << getName() +  " attack " + s

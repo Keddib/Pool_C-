@@ -11,6 +11,18 @@ ScavTrap::ScavTrap( std::string const name ): ClapTrap(name, 20, 100, 50)
 	std::cout << YELLOW << "Scav constructor with string called\n";
 }
 
+ScavTrap::ScavTrap( const ScavTrap &scav ): ClapTrap(scav)
+{
+	std::cout << YELLOW << "Scav copy constructor called\n";
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap &scav)
+{
+	ClapTrap::operator=(scav);
+	std::cout << YELLOW << "Scav assignment operator overloading called\n";
+	return *this;
+}
+
 ScavTrap::~ScavTrap( void )
 {
 	std::cout << YELLOW << "Scav destructor called\n";

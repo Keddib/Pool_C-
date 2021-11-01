@@ -1,13 +1,14 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
-DiamondTrap::DiamondTrap( void ): ScavTrap(""), FragTrap("")
+DiamondTrap::DiamondTrap( void )
+: ScavTrap(), FragTrap()
 {
 	std::cout << BLUE << "Diamond defualt Construt called\n";
 }
 
 DiamondTrap::DiamondTrap( const std::string s )
-: ScavTrap(s + "_clap_name"), FragTrap(s + "_clap_name")
+: ScavTrap(s, 100, 50, 30), FragTrap(s, 100, 50, 30)
 {
 	std::cout << BLUE << "Diamond Construt with string called\n";
 }
@@ -19,12 +20,12 @@ DiamondTrap::~DiamondTrap( void )
 
 std::string DiamondTrap::getName( void ) const
 {
-	return m_name;
+	return _name;
 }
 
 void DiamondTrap::whoAmI( void )
 {
-	std::cout << BLUE << "I am " << m_name + " inhereted from "
+	std::cout << BLUE << "I am " << _name + " inhereted from "
 	<< ScavTrap::getName() + '\n';
 }
 

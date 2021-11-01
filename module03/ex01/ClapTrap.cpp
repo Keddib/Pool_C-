@@ -16,8 +16,8 @@ m_name(name), m_attackDamage(attack), m_hitPoints(hit), m_energyPoints(energy)
 
 ClapTrap::ClapTrap( ClapTrap const &claptrap )
 {
-	*this = claptrap;
 	std::cout << GREEN << "Clap Copy constructor called\n";
+	*this = claptrap;
 }
 
 ClapTrap::~ClapTrap( void )
