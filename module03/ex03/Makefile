@@ -1,4 +1,4 @@
-NAME		= 	fragtrap
+NAME		= 	daimondtrap
 
 SRCS 		=	main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 

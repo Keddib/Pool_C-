@@ -35,7 +35,7 @@ ClapTrap& ClapTrap::operator = ( ClapTrap const &claptrap )
 	return *this;
 }
 
-void ClapTrap::attack( std::string const &s)
+void ClapTrap::attack( std::string const &s )
 {
 	std::cout << GREEN << "ClapTrap " << m_name +  " attack " + s
 	<< ", causing " << m_attackDamage <<  " points of damage\n";

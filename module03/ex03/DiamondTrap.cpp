@@ -2,13 +2,13 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap( void )
-: ScavTrap(), FragTrap()
+: ClapTrap(), ScavTrap(), FragTrap(), m_name("")
 {
 	std::cout << BLUE << "Diamond defualt Construt called\n";
 }
 
 DiamondTrap::DiamondTrap( const std::string s )
-: ScavTrap(s, 100, 50, 30), FragTrap(s, 100, 50, 30)
+: ClapTrap(s + "_clap_name", 100, 50, 30), ScavTrap(s), FragTrap(s), m_name(s)
 {
 	std::cout << BLUE << "Diamond Construt with string called\n";
 }
@@ -18,21 +18,28 @@ DiamondTrap::~DiamondTrap( void )
 	std::cout << BLUE << "Diamond destrut called\n";
 }
 
-std::string DiamondTrap::getName( void ) const
+DiamondTrap::DiamondTrap( const DiamondTrap &other)
+: ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
-	return _name;
+	m_name = other.m_name;
+	std::cout << BLUE << "Diamond Copy constructor called\n";
+}
+
+DiamondTrap& DiamondTrap::operator = (const DiamondTrap &other)
+{
+	ClapTrap::operator=(other);
+	ScavTrap::operator=(other);
+	FragTrap::operator=(other);
+	return *this;
+}
+
+void DiamondTrap::attack(std::string const &s)
+{
+	ScavTrap::attack(s);
 }
 
 void DiamondTrap::whoAmI( void )
 {
-	std::cout << BLUE << "I am " << _name + " inhereted from "
+	std::cout << BLUE << "I am " << m_name + " inhereted from "
 	<< ScavTrap::getName() + '\n';
 }
-
-// std::ostream& operator << (std::ostream &out, const DiamondTrap &d)
-// {
-	// out << BLUE << "DiamondTrap: " << d.getName() << "( " << d.getHitPoints()
-	// << ", " << d.getEnergyPoints()
-// 	// << ", " << d.getAttackDamage() << " )";
-// 	return out;
-// }

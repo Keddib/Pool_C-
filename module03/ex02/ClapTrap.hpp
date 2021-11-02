@@ -17,7 +17,7 @@ class ClapTrap
 		unsigned int m_energyPoints;
 	public:
 		ClapTrap( void );
-		ClapTrap( std::string, int, int, int );
+		ClapTrap( const std::string, int, int, int );
 		ClapTrap( ClapTrap const & );
 		~ClapTrap( void );
 		ClapTrap& operator = (ClapTrap const &);

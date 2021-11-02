@@ -6,8 +6,8 @@ FragTrap::FragTrap( void ): ClapTrap("", 30, 100, 100)
 	std::cout << RED << "Frag default constructor called\n";
 }
 
-FragTrap::FragTrap( std::string const name, int h = 100, int e = 100, int d = 30)
-: ClapTrap(name, h, e, d)
+FragTrap::FragTrap( std::string const name)
+: ClapTrap(name, 100, 100, 30)
 {
 	std::cout << RED << "Frag constructor with string called\n";
 }

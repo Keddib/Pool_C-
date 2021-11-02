@@ -6,8 +6,8 @@ ScavTrap::ScavTrap( void ): ClapTrap("", 20, 100, 50)
 	std::cout << YELLOW << "Scav default constructor called\n";
 }
 
-ScavTrap::ScavTrap( std::string const name, int h = 100, int e = 50, int d = 20)
-: ClapTrap(name, h, e, d)
+ScavTrap::ScavTrap( std::string const name)
+: ClapTrap(name, 100, 50, 20)
 {
 	std::cout << YELLOW << "Scav constructor with string called\n";
 }

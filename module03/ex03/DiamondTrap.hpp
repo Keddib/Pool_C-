@@ -7,17 +7,16 @@
 class DiamondTrap: public ScavTrap, public FragTrap
 {
 	private:
-		std::string _name;
+		std::string m_name;
 
 	public:
 		DiamondTrap( void );
 		DiamondTrap( const std::string );
 		~DiamondTrap( void );
-		using ScavTrap::attack; // using not allowed;
-		std::string getName( void ) const;
+		DiamondTrap( const DiamondTrap& );
+		DiamondTrap& operator=( const DiamondTrap& );
+		void attack( const std::string & );
 		void whoAmI( void );
 };
-
-// std::ostream& operator << (std::ostream &out, const DiamondTrap &d);
 
 #endif
