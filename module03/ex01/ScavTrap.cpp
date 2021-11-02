@@ -30,19 +30,11 @@ ScavTrap::~ScavTrap( void )
 
 void	ScavTrap::attack(std::string const &s)
 {
-	std::cout << YELLOW << "ScavTrap " << getName() +  " attack " + s
-	<< ", causing " << getAttackDamage() <<  " points of damage\n";
+	std::cout << YELLOW << "ScavTrap " << m_name +  " attack " + s
+	<< ", causing " << m_attackDamage <<  " points of damage\n";
 }
 
 void ScavTrap::guardGate()
 {
 	std::cout << YELLOW << "ScavTrap Has Entered in Gate keeper Mode\n";
-}
-
-std::ostream& operator<< (std::ostream &out, const ScavTrap &scav)
-{
-	out << YELLOW << "ScavTrap: " << scav.getName() << "( " << scav.getHitPoints()
-	<< ", " << scav.getEnergyPoints()
-	<< ", " << scav.getAttackDamage() << " )";
-	return out;
 }

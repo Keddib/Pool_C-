@@ -52,23 +52,3 @@ void ClapTrap::beRepaired( unsigned int repaired)
 	std::cout << GREEN << "ClapTrap " << m_name +  " takes "
 	<< repaired <<  " points of health\n";
 }
-
-std::string ClapTrap::getName( void ) const
-{
-	return m_name;
-}
-
-int ClapTrap::getAttackDamage( void ) const
-{
-	return m_attackDamage;
-}
-
-int ClapTrap::getHitPoints( void ) const
-{
-	return m_hitPoints;
-}
-
-int ClapTrap::getEnergyPoints( void ) const
-{
-	return m_energyPoints;
-}
