@@ -7,11 +7,6 @@ WrongAnimal::WrongAnimal( void ): m_type("")
 	std::cout << "WrongAnimal Default constuctor called\n";
 }
 
-WrongAnimal::WrongAnimal( const std::string &s ): m_type(s)
-{
-	std::cout << "WrongAnimal Default constuctor called\n";
-}
-
 WrongAnimal::~WrongAnimal( void )
 {
 	std::cout << "WrongAnimal Destructor called\n";

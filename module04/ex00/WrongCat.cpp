@@ -2,8 +2,9 @@
 
 #include <iostream>
 
-WrongCat::WrongCat(void): WrongAnimal("")
+WrongCat::WrongCat(void): WrongAnimal()
 {
+	m_type = "WrongCat";
 	std::cout << "WrongCat default constructor called\n";
 }
 

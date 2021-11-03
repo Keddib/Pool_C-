@@ -4,6 +4,7 @@
 
 Dog::Dog(void): Animal()
 {
+	m_type = "Dog";
 	std::cout << "Dog default constructor called\n";
 }
 

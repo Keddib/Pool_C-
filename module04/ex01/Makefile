@@ -1,6 +1,6 @@
-NAME		= 	Poly
+NAME		= 	brain
 
-SRCS 		=	main.cpp Animal.cpp Cat.cpp
+SRCS 		=	main.cpp  Brain.cpp Animal.cpp Cat.cpp Dog.cpp
 
 GO			=	clang++ -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g3
 

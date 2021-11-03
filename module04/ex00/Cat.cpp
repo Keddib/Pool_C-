@@ -4,6 +4,7 @@
 
 Cat::Cat(void): Animal()
 {
+	m_type = "Cat";
 	std::cout << "Cat default constructor called\n";
 }
 

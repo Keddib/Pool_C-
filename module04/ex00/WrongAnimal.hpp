@@ -8,7 +8,7 @@ class WrongAnimal
 	protected:
 		std::string m_type;
 	public:
-		WrongAnimal( const std::string  );
+		WrongAnimal( void );
 		~WrongAnimal( void );
 		WrongAnimal( const WrongAnimal & );
 		WrongAnimal& operator = (const WrongAnimal &);

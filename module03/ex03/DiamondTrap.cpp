@@ -28,8 +28,9 @@ DiamondTrap::DiamondTrap( const DiamondTrap &other)
 DiamondTrap& DiamondTrap::operator = (const DiamondTrap &other)
 {
 	ClapTrap::operator=(other);
-	ScavTrap::operator=(other);
-	FragTrap::operator=(other);
+	// ScavTrap::operator=(other);
+	// FragTrap::operator=(other);
+	std::cout << BLUE << "Diamond Copy assignment called\n";
 	return *this;
 }
 
