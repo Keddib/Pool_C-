@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap( void ): ClapTrap("", 20, 100, 50)
+ScavTrap::ScavTrap( void ): ClapTrap("", 100, 50, 20)
 {
 	std::cout << YELLOW << "Scav default constructor called\n";
 }
@@ -31,19 +31,11 @@ ScavTrap::~ScavTrap( void )
 
 void	ScavTrap::attack(std::string const &s)
 {
-	std::cout << YELLOW << "ScavTrap " << getName() +  " attack " + s
-	<< ", causing " << getAttackDamage() <<  " points of damage\n";
+	std::cout << YELLOW << "ScavTrap " << m_name +  " attack " + s
+	<< ", causing " << m_attackDamage <<  " points of damage\n";
 }
 
 void ScavTrap::guardGate()
 {
 	std::cout << YELLOW << "ScavTrap Has Entered in Gate keeper Mode\n";
-}
-
-std::ostream& operator<< (std::ostream &out, const ScavTrap &scav)
-{
-	out << YELLOW << "ScavTrap: " << scav.getName() << "( " << scav.getHitPoints()
-	<< ", " << scav.getEnergyPoints()
-	<< ", " << scav.getAttackDamage() << " )";
-	return out;
 }

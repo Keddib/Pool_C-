@@ -41,5 +41,5 @@ void DiamondTrap::attack(std::string const &s)
 void DiamondTrap::whoAmI( void )
 {
 	std::cout << BLUE << "I am " << m_name + " inhereted from "
-	<< ScavTrap::getName() + '\n';
+	<< ClapTrap::m_name + '\n';
 }

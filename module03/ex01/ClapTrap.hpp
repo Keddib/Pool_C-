@@ -12,9 +12,9 @@ class ClapTrap
 {
 	protected:
 		std::string m_name;
-		unsigned int m_attackDamage;
 		unsigned int m_hitPoints;
 		unsigned int m_energyPoints;
+		unsigned int m_attackDamage;
 	public:
 		ClapTrap( void );
 		ClapTrap( std::string, int, int, int );
@@ -24,6 +24,7 @@ class ClapTrap
 		void attack( std::string const &);
 		void takeDamage( unsigned int);
 		void beRepaired( unsigned int);
+		void getStatus( void );
 
 };
 

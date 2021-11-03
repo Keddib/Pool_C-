@@ -8,6 +8,7 @@ int main()
 	ClapTrap b(a);
 	ClapTrap c("");
 	c = a;
+	a.getStatus();
 	a.attack("ENEMY");
 	a.takeDamage(20);
 	a.beRepaired(20);

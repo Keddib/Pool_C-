@@ -8,8 +8,8 @@ ClapTrap::ClapTrap( void )
 	std::cout << GREEN << "Clap default constructor called\n";
 }
 
-ClapTrap::ClapTrap( std::string name, int hit = 10, int energy = 10, int attack = 0):
-m_name(name), m_hitPoints(hit), m_energyPoints(energy), m_attackDamage(attack)
+ClapTrap::ClapTrap( std::string name, int hit = 10 , int energy = 10, int attack = 0)
+: m_name(name), m_hitPoints(hit), m_energyPoints(energy), m_attackDamage(attack)
 {
 	std::cout << GREEN << "Clap constructor with string param called\n";
 }
@@ -35,40 +35,30 @@ ClapTrap& ClapTrap::operator = ( ClapTrap const &claptrap )
 	return *this;
 }
 
-void ClapTrap::attack( std::string const &s )
+void ClapTrap::attack( std::string const &s)
 {
 	std::cout << GREEN << "ClapTrap " << m_name +  " attack " + s
 	<< ", causing " << m_attackDamage <<  " points of damage\n";
+	m_energyPoints -= 5;
 }
 
 void ClapTrap::takeDamage( unsigned int damage)
 {
 	std::cout << GREEN << "ClapTrap " << m_name +  " takes "
 	<< damage <<  " points of damage\n";
+	m_hitPoints -= damage;
 }
 
 void ClapTrap::beRepaired( unsigned int repaired)
 {
 	std::cout << GREEN << "ClapTrap " << m_name +  " takes "
 	<< repaired <<  " points of health\n";
+	m_hitPoints += repaired;
+	m_energyPoints += repaired / 2;
 }
 
-std::string ClapTrap::getName( void ) const
+void ClapTrap::getStatus( void )
 {
-	return m_name;
-}
-
-int ClapTrap::getAttackDamage( void ) const
-{
-	return m_attackDamage;
-}
-
-int ClapTrap::getHitPoints( void ) const
-{
-	return m_hitPoints;
-}
-
-int ClapTrap::getEnergyPoints( void ) const
-{
-	return m_energyPoints;
+	std::cout << GREEN << m_name + " (" << m_hitPoints << ", " << m_energyPoints <<
+	", " << m_attackDamage << ")\n";
 }

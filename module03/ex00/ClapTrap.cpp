@@ -39,16 +39,26 @@ void ClapTrap::attack( std::string const &s)
 {
 	std::cout << "ClapTrap " << m_name +  " attack " + s
 	<< ", causing " << m_attackDamage <<  " points of damage\n";
+	m_energyPoints -= 5;
 }
 
 void ClapTrap::takeDamage( unsigned int damage)
 {
 	std::cout << "ClapTrap " << m_name +  " takes "
 	<< damage <<  " points of damage\n";
+	m_hitPoints -= damage;
 }
 
 void ClapTrap::beRepaired( unsigned int repaired)
 {
 	std::cout << "ClapTrap " << m_name +  " takes "
 	<< repaired <<  " points of health\n";
+	m_hitPoints += repaired;
+	m_energyPoints += repaired / 2;
+}
+
+void ClapTrap::getStatus( void )
+{
+	std::cout << m_name + " (" << m_hitPoints << ", " << m_energyPoints <<
+	", " << m_attackDamage << ")\n";
 }

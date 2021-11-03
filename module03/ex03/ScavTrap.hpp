@@ -15,6 +15,4 @@ class ScavTrap: virtual public ClapTrap
 		void guardGate();
 };
 
-std::ostream& operator<< (std::ostream &out, const ScavTrap &scav);
-
 #endif

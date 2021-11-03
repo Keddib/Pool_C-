@@ -8,10 +8,10 @@ int main()
 	ScavTrap b(a);
 	ScavTrap c("test");
 	b = c;
+	a.getStatus();
 	a.attack("ENEMY");
 	a.takeDamage(20);
 	a.beRepaired(20);
-	std::cout << a << '\n';
 	a.guardGate();
 	return 0;
 }
