@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-WrongAnimal::WrongAnimal( void ): m_type("")
+WrongAnimal::WrongAnimal( void ): m_type("WrongAnimal")
 {
 	std::cout << "WrongAnimal Default constuctor called\n";
 }

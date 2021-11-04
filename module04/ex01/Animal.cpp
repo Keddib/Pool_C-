@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-Animal::Animal( void ): m_type("")
+Animal::Animal( void ): m_type("Animal")
 {
 	std::cout << "Animal Default constuctor called\n";
 }
