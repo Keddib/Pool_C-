@@ -2,16 +2,10 @@
 #include <iostream>
 
 Character::Character( void )
-:m_name("Character"), m_AM(), m_emtyPlace(0)
-{
-	std::cout << "Character Default constructor called\n";
-}
+:m_name("Character"), m_AM(), m_emtyPlace(0) {}
 
 Character::Character( std::string const &name )
-: m_name(name), m_AM(), m_emtyPlace(0)
-{
-	std::cout << "Character string constructor called\n";
-}
+: m_name(name), m_AM(), m_emtyPlace(0) {}
 
 Character::~Character( void )
 {
@@ -23,14 +17,11 @@ Character::~Character( void )
 			m_AM[i] = NULL;
 		}
 	}
-	std::cout << "Character destructor called\n";
 }
 
 Character::Character( Character const &other )
 {
 	*this =  other;
-	std::cout << "Character Copy constructor called\n";
-
 }
 
 Character& Character::operator = (Character const &other)
@@ -38,7 +29,6 @@ Character& Character::operator = (Character const &other)
 	if (this == &other)
 		return *this;
 	deepCopy(other);
-	std::cout << "Character Copy assignment called\n";
 	return *this;
 }
 

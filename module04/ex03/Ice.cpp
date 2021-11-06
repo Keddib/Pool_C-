@@ -2,29 +2,17 @@
 #include <string>
 #include <iostream>
 
-Ice::Ice( void ) : AMateria("ice")
-{
-	std::cout << "Ice Default constructor called\n";
-}
-Ice::Ice( std::string const &type ) : AMateria(type)
-{
-	std::cout << "Ice Default constructor called\n";
-}
+Ice::Ice( void ) : AMateria("ice") {}
 
-Ice::Ice( Ice const & other ) : AMateria(other)
-{
-	std::cout << "Ice Copy construcotr called\n";
-}
+Ice::Ice( std::string const &type ) : AMateria(type) {}
 
-Ice::~Ice()
-{
-	std::cout << "Ice destructor called\n";
-}
+Ice::Ice( Ice const & other ) : AMateria(other) {}
+
+Ice::~Ice() {}
 
 Ice& Ice::operator =( Ice const &other)
 {
 	AMateria::operator=(other);
-	std::cout << "Ice copy assignment called\n";
 	return *this;
 }
 
