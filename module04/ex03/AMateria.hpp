@@ -10,9 +10,9 @@ class AMateria
 		std::string m_type;
 	public:
 		AMateria( void );
-		AMateria( std::string const & type );
+		AMateria(std::string const & type);
 		AMateria( AMateria const & other );
-		~AMateria( void );
+		virtual ~AMateria( void );
 		AMateria& operator = (AMateria const &);
 		std::string const & getType( void ) const; //Returns the materia type
 		virtual AMateria* clone( void ) const = 0;
