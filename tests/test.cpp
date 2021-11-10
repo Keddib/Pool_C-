@@ -50,8 +50,7 @@ class Circle: public Shape
 int main()
 {
     Circle c( Point( 1, 2, 3 ), 7 );
-   // std::cout << c << '\n';
-
+    std::cout << c << '\n';
     return 0;
 }
 
