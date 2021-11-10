@@ -13,7 +13,7 @@ Form::Form(const std::string name, const int toSigne, const int toExcute)
 Form::Form( const Form &form)
 : m_name(form.m_name), m_gradeToSigne(form.m_gradeToSigne), m_gradeToExecute(form.m_gradeToExecute)
 {
-	*this = form;
+	m_isSigned = form.m_isSigned;
 }
 
 Form& Form::operator=( const Form &form )
@@ -61,6 +61,14 @@ void Form::beSigned( const Bureaucrat &bure )
 	if(bure.getGrade() > m_gradeToSigne)
 		throw GradeTooLowException();
 	m_isSigned = true;
+}
+
+bool Form::isEligible( Bureaucrat const &bure ) const
+{
+	if (isSigned() && bure.getGrade() <= getGradeToExcute())
+		return true;
+	else
+		throw GradeTooLowException();
 }
 
 std::ostream& operator<<( std::ostream &out, const Form &f )
