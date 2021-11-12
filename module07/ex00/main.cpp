@@ -11,7 +11,6 @@ void f(A& a, int i) { std::cout << "func f called\n";}
 
 }  // namespace NS
 
-
 int main()
 {
 	// int example
