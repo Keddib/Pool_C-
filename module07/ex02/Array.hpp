@@ -1,6 +1,9 @@
 #ifndef ARRAY_653_HPP
 #define ARRAY_653_HPP
 
+#include <exception>
+#include <iostream>
+
 template <class T>
 class Array
 {
@@ -22,7 +25,7 @@ template <class T>
 Array<T>::Array() : m_size(0), m_array( new T() ) {}
 
 template <class T>
-Array<T>::Array( unsigned int size ) : m_size(size), m_array( new T[size] ) {}
+Array<T>::Array( unsigned int size ) : m_size(size), m_array( new T[size]() ) {}
 
 template <class T>
 Array<T>::~Array()
@@ -31,17 +34,18 @@ Array<T>::~Array()
 }
 
 template <class T>
-Array<T>::Array( const Array<T> &other ): m_array()
+Array<T>::Array( const Array<T> &other ): m_array(NULL)
 {
 	*this = other;
 }
 
 template <class T>
-Array<T>& Array<T>::operator=( const Array &other )
+Array<T>& Array<T>::operator=( const Array<T> &other )
 {
 	if (m_array)
 		delete[] m_array;
 	m_size = other.m_size;
+	m_array = new T[m_size];
 	for (t_size i= 0; i != m_size; i++)
 		m_array[i] = other.m_array[i];
 	return *this;
@@ -50,6 +54,8 @@ Array<T>& Array<T>::operator=( const Array &other )
 template <class T>
 T& Array<T>::operator[]( unsigned int index )
 {
+	if (index >= m_size)
+		throw std::out_of_range("Invalid Index");
 	return m_array[index];
 }
 
