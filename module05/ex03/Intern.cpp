@@ -25,7 +25,7 @@ int whichIndex(const std::string form)
 
 Form* Intern::makeForm( const std::string form, const std::string target)
 {
-	Form *forms[3] = {
+	Form *forms[3]; = {
 			new ShrubberyCreationForm(target),
 			new RobotomyRequestForm(target),
 			new PresidentialPardonForm(target)
