@@ -2,6 +2,10 @@
 #include <iostream>
 #include <iomanip>      // std::setprecision
 
+void convertToChar(const std::string &);
+void convertToInt(const std::string &);
+void convertToFloat(const std::string &);
+void convertToDouble(const std::string &);
 
 int main(int argc, char **argv)
 {
@@ -10,22 +14,10 @@ int main(int argc, char **argv)
 		std::cout << "Error: Accept only one argument\n";
 		return (1);
 	}
-
-	std::string s_num(argv[1]);
-	int iNumber = std::stoi(s_num);
-	char cNumber = static_cast<char>(iNumber);
-	float fNumber = std::stof(s_num);
-	double dNumber = std::stod(s_num);
-
-
-	if (std::isprint(cNumber))
-		std::cout << "char : " << cNumber << '\n';
-	else
-		std::cout << "char : Non displayable\n";
-
-	std::cout << "int : " << iNumber << '\n';
-	std::cout << std::setprecision(1) << std::fixed << "float : " << fNumber << '\n';
-	std::cout << "double : " << dNumber << '\n';
-	
+	std::string sNum(argv[1]);
+	convertToChar(sNum);
+	convertToInt(sNum);
+	convertToFloat(sNum);
+	convertToDouble(sNum);
 	return 0;
 }
