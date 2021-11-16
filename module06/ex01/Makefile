@@ -1,6 +1,6 @@
 NAME	= reinterpret
 
-SRCS	= main.cpp #....
+SRCS	= main.cpp serialize.cpp#....
 
 GO		= clang++ -Wextra -Werror -Wall
 
@@ -12,6 +12,7 @@ ${NAME} : ${SRCS}
 clean:
 
 fclean: clean
+	@rm -rf ${NAME}
 
 re: fclean all
 

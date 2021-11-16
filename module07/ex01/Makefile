@@ -1,8 +1,8 @@
-NAME = temp1
+NAME = iter
 
 SRC = main.cpp
 
-GO = lang++ -Wextra -Werror -Wall -std=c++98
+GO = clang++ -Wextra -Werror -Wall -std=c++98
 
 all: ${NAME}
 

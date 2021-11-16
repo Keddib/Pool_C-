@@ -19,7 +19,7 @@ void convertToChar(const std::string &sNum)
 		std::cout << "char : imposible\n";
 		return;
 	}
-	unsigned char c = (unsigned char)num;
+	unsigned char c = static_cast<unsigned char>(num);
 	if (std::isprint(c))
 		std::cout << "char : " << c << '\n';
 	else

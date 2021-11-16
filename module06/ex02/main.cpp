@@ -4,11 +4,6 @@
 #include <cstdlib>
 
 
-Base * generate(void);
-void identify(Base* p);
-void identify(Base &p);
-
-
 int main()
 {
 

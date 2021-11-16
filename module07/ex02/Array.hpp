@@ -22,10 +22,10 @@ class Array
 };
 
 template <class T>
-Array<T>::Array() : m_size(0), m_array( new T() ) {}
+Array<T>::Array() : m_array( new T[0] ), m_size(0) {}
 
 template <class T>
-Array<T>::Array( unsigned int size ) : m_size(size), m_array( new T[size]() ) {}
+Array<T>::Array( unsigned int size ) : m_array( new T[size]() ), m_size(size) {}
 
 template <class T>
 Array<T>::~Array()

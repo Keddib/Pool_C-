@@ -19,7 +19,22 @@ class Span
 		void addNumber( int );
 		int shortestSpan() const;
 		int longestSpan() const;
+		// iterator to putt range of values
+		typedef typename std::vector<int>::iterator iterator;
+		iterator begin();
+		iterator end();
+
 };
+
+Span::iterator Span::end()
+{
+	return m_data.begin();
+}
+
+Span::iterator Span::begin()
+{
+	return m_data.end();
+}
 
 Span::Span( unsigned int n ) : m_data(0), m_size(n) {}
 

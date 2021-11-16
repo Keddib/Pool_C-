@@ -1,17 +1,11 @@
-#include <string>
+#include "convert.hpp"
 #include <iostream>
-#include <iomanip>      // std::setprecision
-
-void convertToChar(const std::string &);
-void convertToInt(const std::string &);
-void convertToFloat(const std::string &);
-void convertToDouble(const std::string &);
 
 int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Error: Accept only one argument\n";
+		std::cout << "Error: Accept one argument only\n";
 		return (1);
 	}
 	std::string sNum(argv[1]);
