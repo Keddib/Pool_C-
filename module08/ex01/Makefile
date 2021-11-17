@@ -2,7 +2,7 @@ NAME	= span
 
 SRC		= main.cpp
 
-GO		= clang++ -Werror -Wextra -Wall -std=c++98
+GO		= clang++ -Werror -Wextra -Wall -std=c++98 -g3
 
 all: $(NAME)
 

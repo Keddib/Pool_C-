@@ -17,23 +17,24 @@ class Span
 		Span ( const Span& );
 		Span& operator=( const Span& );
 		void addNumber( int );
+		template <typename T>
+		void addNumber( T first, T last);
 		int shortestSpan() const;
 		int longestSpan() const;
-		// iterator to putt range of values
-		typedef typename std::vector<int>::iterator iterator;
-		iterator begin();
-		iterator end();
 
 };
 
-Span::iterator Span::end()
-{
-	return m_data.begin();
-}
 
-Span::iterator Span::begin()
+template <typename T>
+void Span::addNumber( T first, T last)
 {
-	return m_data.end();
+	while (first != last)
+	{
+		if (m_data.size() >= m_size )
+			throw std::out_of_range("Range is full");
+		m_data.push_back(*first);
+		++first;
+	}
 }
 
 Span::Span( unsigned int n ) : m_data(0), m_size(n) {}

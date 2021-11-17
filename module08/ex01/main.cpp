@@ -14,5 +14,12 @@ int main()
 
 	std::cout << "longest = " << a.longestSpan() << '\n';
 	std::cout << "shortest = " << a.shortestSpan() << '\n';
+	std::vector<int> vecT(10, 5);
+	for (std::vector<int>::iterator i = vecT.begin(); i != vecT.end(); i++)
+		std::cout << *i << " | ";
+	std::cout << std::endl;
+	Span x(20);
+	x.addNumber(vecT.begin(), vecT.end());
+
 	return 0;
 }
