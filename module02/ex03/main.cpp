@@ -4,7 +4,7 @@
 #include <sstream>
 
 
-// equasion to get the triangle area
+// equation to get the triangle area
 // ((a.x - c.x) * (b.y - c.y)) - ((b.x - c.x) * (a.y - c.y))
 //https://www.gamedev.net/forums/topic.asp?topic_id=295943
 //https://ncalculators.com/geometry/triangle-area-by-3-points.htm
